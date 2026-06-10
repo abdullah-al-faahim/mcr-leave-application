@@ -6,11 +6,10 @@
 	<title>Leave Application - Channel i MCR</title>
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<style>
-		/* Basic styling for labels and inputs */
 		body {
 			font-family: Arial, sans-serif;
 			margin: 0;
-			padding: 0.5in;
+			padding: 0.3in;
 			background-color: #f5f5f5;
 		}
 		label {
@@ -29,11 +28,9 @@
 			border-radius: 4px;
 			box-sizing: border-box;
 		}
-		/* Styling for radio buttons */
 		input[type="radio"] {
 			margin-right: 5px;
 		}
-		/* Styles for the table */
 		table {
 			width: 100%;
 			border-collapse: collapse;
@@ -50,36 +47,29 @@
 		th {
 			background-color: #f2f2f2;
 		}
-		/* Form styling */
 		.leave-form {
 			max-width: 210mm;
 			width: 100%;
 			height: 297mm;
 			margin: 0 auto;
-			padding: 0.5in;
+			padding: 0.3in;
 			background-color: #fff;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			box-shadow: 0 0 10px rgba(0,0,0,0.1);
 			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;
 			overflow: hidden;
 		}
-		/* Form Header */
+		/* Header */
 		.form-header {
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
-			margin-bottom: 20px;
+			margin-bottom: 16px;
 			flex-shrink: 0;
 		}
-		.company-details {
-			width: 70%;
-		}
-		.company-details p {
-			margin: 0;
-			padding: 0;
-			line-height: 1.4;
-		}
+		.company-details { width: 70%; }
+		.company-details p { margin: 0; padding: 0; line-height: 1.4; }
 		.company-details .company-name {
 			font-size: 28px;
 			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -87,48 +77,63 @@
 			font-style: italic;
 			margin-bottom: 4px;
 		}
-		.company-details .company-address {
-			font-size: 14px;
-			margin-bottom: 2px;
-		}
-		.company-details .company-contact {
-			font-size: 14px;
-		}
-		.company-logo img {
-			width: 150px;
-			height: auto;
-		}
-		/* Employee and Leave details */
-		.employee-details, .leave-details {
+		.company-details .company-address { font-size: 14px; margin-bottom: 2px; }
+		.company-details .company-contact { font-size: 14px; }
+		.company-logo img { width: 150px; height: auto; }
+
+		/* Employee details row — Name:ID:Designation = 3:1:2 */
+		.employee-details {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 20px;
+			margin-bottom: 16px;
 			flex-shrink: 0;
 		}
-		.field {
+		.employee-details .field-name  { flex: 3; padding-right: 10px; box-sizing: border-box; min-width: 0; }
+		.employee-details .field-id    { flex: 1; padding: 0 10px;     box-sizing: border-box; min-width: 0; }
+		.employee-details .field-desig { flex: 2; padding-left: 10px;  box-sizing: border-box; min-width: 0; }
+
+		/* Leave details row */
+		.leave-details {
+			display: flex;
+			align-items: flex-end;
+			margin-bottom: 16px;
+			flex-shrink: 0;
+			gap: 10px;
+		}
+		.leave-details .field-dept   { flex: 2; min-width: 0; }
+		.leave-details .field-period { flex: 4; min-width: 0; }
+		.leave-details .field-days   { flex: 0 0 80px; min-width: 0; }
+
+		/* Inline date range: [From ___] [To ___] on one row */
+		.period-row {
+			display: flex;
+			align-items: flex-end;
+			gap: 8px;
+		}
+		.period-row .period-from,
+		.period-row .period-to {
 			flex: 1;
-			padding: 0 10px;
-			box-sizing: border-box;
 			min-width: 0;
 		}
-		.field:first-child {
-			padding-left: 0;
+		.period-row label {
+			display: block;
+			font-weight: bold;
+			margin-top: 0;
+			margin-bottom: 0;
 		}
-		.leave-period {
-			display: flex;
-			flex-direction: column;
+		/* Total days: compact width, only 3-digit room */
+		#totalDays {
+			width: 100%;
+			text-align: center;
 		}
-		.leave-period label:not(:first-child) {
-			margin-left: 0;
-			margin-top: 10px;
-		}
-		/* Field container for leave purpose and type */
+
+		/* Purpose + Type */
 		.field-container {
 			display: flex;
 			justify-content: space-between;
 			align-items: flex-start;
 			margin-top: 10px;
-			margin-bottom: 20px;
+			margin-bottom: 16px;
 			flex-shrink: 0;
 		}
 		.leave-purpose {
@@ -136,9 +141,7 @@
 			padding-right: 20px;
 			box-sizing: border-box;
 		}
-		.leave-type {
-			flex-basis: 40%;
-		}
+		.leave-type { flex-basis: 40%; }
 		.leave-type .options {
 			display: flex;
 			justify-content: flex-start;
@@ -150,73 +153,60 @@
 			margin-right: 20px;
 			font-weight: normal;
 		}
+
 		/* Signatures */
 		.signature-row {
 			display: flex;
 			justify-content: space-between;
-			padding-top: 50px;
-			margin-top: 30px;
-			margin-bottom: 30px;
+			padding-top: 40px;
+			margin-bottom: 20px;
 			flex-shrink: 0;
 		}
-		.signature {
-			width: 48%;
-			text-align: right;
-			min-width: 0;
-			overflow: hidden;
-		}
-		.signature.applicant {
-			text-align: left;
-		}
-		.signature.head {
-			text-align: right;
-		}
-		.signature p {
-			margin: 0;
-			word-break: break-word;
-		}
-		/* FIX: use a bordered line instead of underscores for signature lines */
+		.signature { width: 48%; min-width: 0; overflow: hidden; }
+		.signature.applicant { text-align: left; }
+		.signature.head      { text-align: right; }
+		.signature p { margin: 0; word-break: break-word; }
 		.signature-line {
 			display: inline-block;
 			width: 180px;
 			border-bottom: 1px solid #000;
 			margin-bottom: 4px;
 		}
-		.signature label {
-			display: inline;
-			font-weight: normal;
-		}
-		/* Centered title */
-		.centered-title {
-			text-align: center;
-			margin-top: 10px;
-			margin-bottom: 5px;
-		}
-		.application-date-time {
-			font-size: 11px;
-		}
-		/* Official Use Only Section */
+		.signature label { display: inline; font-weight: normal; }
+
+		/* Titles */
+		.centered-title { text-align: center; margin-top: 10px; margin-bottom: 5px; }
+		.application-date-time { font-size: 11px; }
+
+		/* Official Use Only */
 		.official-section {
-			margin-top: 30px;
-			padding-top: 30px;
+			margin-top: 20px;
+			padding-top: 20px;
 			border-top: 2px solid #000;
 			flex: 1;
 			display: flex;
 			flex-direction: column;
 			overflow: hidden;
 		}
-		.official-section h4 {
-			margin-top: 0;
-			margin-bottom: 15px;
-			flex-shrink: 0;
+		.official-section h4 { margin-top: 0; margin-bottom: 15px; flex-shrink: 0; }
+		.official-section table { flex-shrink: 0; font-size: 13px; }
+		.official-section > div { flex-shrink: 0; }
+
+		/* HR/Admin signature — no gap */
+		.hr-signature {
+			padding-top: 30px;
 		}
-		.official-section table {
-			flex-shrink: 0;
-			font-size: 13px;
+		.hr-signature p {
+			margin: 0;
+			line-height: 1.4;
 		}
-		.official-section > div {
-			flex-shrink: 0;
+		.hr-signature .signature-line {
+			display: block;
+			width: 180px;
+			border-bottom: 1px solid #000;
+			margin-bottom: 2px;
 		}
+
 		/* Print button */
 		#printBtn {
 			display: block;
@@ -230,49 +220,31 @@
 			width: 200px;
 			margin: 20px auto;
 		}
-		#printBtn:hover {
-			background-color: #16934a;
-		}
-		/* Print media query with A4 margins */
+		#printBtn:hover { background-color: #16934a; }
+
 		@page {
 			size: A4;
-			margin: 0.5in 0.5in 0.5in 0.5in;
+			margin: 0.3in;
 		}
 		@media print {
-			body {
-				padding: 0;
-				margin: 0;
-				background-color: #fff;
-			}
-			body * {
-				visibility: hidden;
-			}
-			.leave-form, .leave-form * {
-				visibility: visible;
-			}
+			body { padding: 0; margin: 0; background-color: #fff; }
+			body * { visibility: hidden; }
+			.leave-form, .leave-form * { visibility: visible; }
 			.leave-form {
 				position: absolute;
-				left: 0;
-				top: 0;
+				left: 0; top: 0;
 				width: 210mm;
 				height: 297mm;
 				margin: 0;
-				padding: 0.5in;
+				padding: 0.3in;
 				border: none;
 				max-width: 100%;
 				box-shadow: none;
 				box-sizing: border-box;
 				page-break-after: avoid;
 			}
-			html, body {
-				width: 210mm;
-				height: 297mm;
-				margin: 0;
-				padding: 0;
-			}
-			#printBtn {
-				display: none;
-			}
+			html, body { width: 210mm; height: 297mm; margin: 0; padding: 0; }
+			#printBtn { display: none; }
 		}
 	</style>
 </head>
@@ -288,38 +260,51 @@
 				<img src="https://dev.channelionline.com/wp-content/uploads/2022/03/chanenl-i-logo-crip-2.jpg" alt="Company Logo">
 			</div>
 		</div>
+
 		<h2 class="centered-title">Leave Application</h2>
 		<p class="application-date-time centered-title"></p>
+
+		<!-- Row 1: Name / ID / Designation -->
 		<div class="employee-details">
-			<div class="field">
+			<div class="field-name">
 				<label>Employee Name:</label>
 				<input type="text">
 			</div>
-			<div class="field">
+			<div class="field-id">
 				<label>ID No:</label>
 				<input type="text">
 			</div>
-			<div class="field">
+			<div class="field-desig">
 				<label>Designation:</label>
 				<input type="text">
 			</div>
 		</div>
+
+		<!-- Row 2: Department / Leave Period (From + To inline) / Total Days -->
 		<div class="leave-details">
-			<div class="field">
+			<div class="field-dept">
 				<label>Department:</label>
 				<input type="text">
 			</div>
-			<div class="field leave-period">
-				<label>Leave Period From:</label>
-				<input type="text" id="fromDate" placeholder="DD/MM/YEAR">
-				<label>To:</label>
-				<input type="text" id="toDate" placeholder="DD/MM/YEAR">
+			<div class="field-period">
+				<div class="period-row">
+					<div class="period-from">
+						<label>Leave Period From:</label>
+						<input type="text" id="fromDate" placeholder="DD/MM/YYYY">
+					</div>
+					<div class="period-to">
+						<label>To:</label>
+						<input type="text" id="toDate" placeholder="DD/MM/YYYY">
+					</div>
+				</div>
 			</div>
-			<div class="field">
-				<label>Total Days:</label>
-				<input type="number" id="totalDays">
+			<div class="field-days">
+				<label>Days:</label>
+				<input type="number" id="totalDays" min="1" max="999">
 			</div>
 		</div>
+
+		<!-- Purpose + Leave Type -->
 		<div class="field-container">
 			<div class="leave-purpose">
 				<label>Purpose of Leave:</label>
@@ -334,6 +319,8 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Signatures: Applicant + HoD -->
 		<div class="signature-row">
 			<div class="signature applicant">
 				<p><span class="signature-line"></span><br><label>Signature</label><br>Applicant</p>
@@ -342,6 +329,8 @@
 				<p><span class="signature-line"></span><br><label>Signature</label><br>Head of Department (Transmission)</p>
 			</div>
 		</div>
+
+		<!-- Official Use Only -->
 		<div class="official-section">
 			<h4 class="centered-title">Official Use Only</h4>
 			<label>Leave Record</label>
@@ -371,42 +360,37 @@
 					<td> - </td>
 				</tr>
 			</table>
-			<div style="padding-top: 30px;">
-				<p><span class="signature-line"></span><br><label>Signature</label><br>HR/Admin</p>
+			<div class="hr-signature">
+				<span class="signature-line"></span>
+				<p>Signature</p>
+				<p>HR/Admin</p>
 			</div>
 		</div>
 	</div>
+
 	<button id="printBtn">Print Application</button>
+
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
-		// Date formatting for the application date-time
+		// Application date-time
 		let now = new Date();
-		let dateString = now.toLocaleDateString('en-GB', {
-			day: '2-digit',
-			month: '2-digit',
-			year: 'numeric'
-		});
-		let dateTimeString = dateString + " " + now.toLocaleTimeString();
-		document.querySelector('.application-date-time').textContent = dateTimeString;
-		// Print functionality
-		document.getElementById('printBtn').addEventListener('click', function() {
-			window.print();
-		});
+		let dateString = now.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
+		document.querySelector('.application-date-time').textContent = dateString + " " + now.toLocaleTimeString();
+
+		// Print
+		document.getElementById('printBtn').addEventListener('click', function() { window.print(); });
+
 		$(function() {
-			// Initialize datepicker with dd/mm/yy format
 			$("#fromDate, #toDate").datepicker({
 				dateFormat: 'dd/mm/yy',
-				onSelect: function() {
-					calculateDays();
-				}
+				onSelect: function() { calculateDays(); }
 			});
 			function calculateDays() {
-				let fromDate = $("#fromDate").datepicker('getDate');
-				let toDate = $("#toDate").datepicker('getDate');
-				if (fromDate && toDate) {
-					let difference = (toDate - fromDate) / (1000 * 60 * 60 * 24) + 1;
-					$("#totalDays").val(difference);
+				let from = $("#fromDate").datepicker('getDate');
+				let to   = $("#toDate").datepicker('getDate');
+				if (from && to) {
+					$("#totalDays").val(Math.round((to - from) / (1000*60*60*24)) + 1);
 				}
 			}
 		});
