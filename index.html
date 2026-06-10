@@ -218,7 +218,16 @@
 		}
 
 		.signature-box {
-			text-align: center;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.signature-box.left {
+			text-align: left;
+		}
+
+		.signature-box.right {
+			text-align: right;
 		}
 
 		.signature-line {
@@ -229,7 +238,11 @@
 			min-height: 40px;
 			display: flex;
 			align-items: flex-end;
-			justify-content: center;
+			justify-content: flex-start;
+		}
+
+		.signature-box.right .signature-line {
+			justify-content: flex-end;
 		}
 
 		.official-section {
@@ -406,11 +419,11 @@
 
 			<!-- Applicant Signature -->
 			<div class="signature-section">
-				<div class="signature-box">
+				<div class="signature-box left">
 					<div class="signature-line">_____________________</div>
 					<p style="font-size: 10px; font-weight: bold; margin-top: 2px;">Signature of Applicant</p>
 				</div>
-				<div class="signature-box">
+				<div class="signature-box right">
 					<div class="signature-line">_____________________</div>
 					<p style="font-size: 10px; font-weight: bold; margin-top: 2px;">Signature of Dept. Head</p>
 				</div>
