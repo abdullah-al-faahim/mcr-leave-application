@@ -9,8 +9,8 @@
 		/* Basic styling for labels and inputs */
 		body {
 			font-family: Arial, sans-serif;
-			margin: 20px auto;
-			padding: 0;
+			margin: 0;
+			padding: 0.5in;
 			background-color: #f5f5f5;
 		}
 		label {
@@ -54,11 +54,15 @@
 		.leave-form {
 			max-width: 210mm;
 			width: 100%;
+			height: 297mm;
 			margin: 0 auto;
-			padding: 30px;
+			padding: 0.5in;
 			background-color: #fff;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			box-sizing: border-box; /* FIX: prevent padding from adding to width */
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
 		}
 		/* Form Header */
 		.form-header {
@@ -66,6 +70,7 @@
 			justify-content: space-between;
 			align-items: flex-start;
 			margin-bottom: 20px;
+			flex-shrink: 0;
 		}
 		.company-details {
 			width: 70%;
@@ -79,6 +84,7 @@
 			font-size: 28px;
 			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 			font-weight: bold;
+			font-style: italic;
 			margin-bottom: 4px;
 		}
 		.company-details .company-address {
@@ -97,12 +103,13 @@
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: 20px;
+			flex-shrink: 0;
 		}
 		.field {
 			flex: 1;
 			padding: 0 10px;
 			box-sizing: border-box;
-			min-width: 0; /* FIX: allow flex children to shrink below content size */
+			min-width: 0;
 		}
 		.field:first-child {
 			padding-left: 0;
@@ -122,11 +129,12 @@
 			align-items: flex-start;
 			margin-top: 10px;
 			margin-bottom: 20px;
+			flex-shrink: 0;
 		}
 		.leave-purpose {
 			flex-basis: 50%;
 			padding-right: 20px;
-			box-sizing: border-box; /* FIX: keep padding inside basis */
+			box-sizing: border-box;
 		}
 		.leave-type {
 			flex-basis: 40%;
@@ -148,13 +156,14 @@
 			justify-content: space-between;
 			padding-top: 50px;
 			margin-top: 30px;
-			margin-bottom: 50px;
+			margin-bottom: 30px;
+			flex-shrink: 0;
 		}
 		.signature {
 			width: 48%;
 			text-align: right;
-			min-width: 0; /* FIX: prevent signature blocks from overflowing */
-			overflow: hidden; /* FIX: contain any overflowing content */
+			min-width: 0;
+			overflow: hidden;
 		}
 		.signature.applicant {
 			text-align: left;
@@ -164,7 +173,7 @@
 		}
 		.signature p {
 			margin: 0;
-			word-break: break-word; /* FIX: prevent long signature lines from overflowing */
+			word-break: break-word;
 		}
 		/* FIX: use a bordered line instead of underscores for signature lines */
 		.signature-line {
@@ -191,10 +200,22 @@
 			margin-top: 30px;
 			padding-top: 30px;
 			border-top: 2px solid #000;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
 		}
 		.official-section h4 {
 			margin-top: 0;
 			margin-bottom: 15px;
+			flex-shrink: 0;
+		}
+		.official-section table {
+			flex-shrink: 0;
+			font-size: 13px;
+		}
+		.official-section > div {
+			flex-shrink: 0;
 		}
 		/* Print button */
 		#printBtn {
@@ -233,17 +254,21 @@
 				position: absolute;
 				left: 0;
 				top: 0;
-				width: 100%;
+				width: 210mm;
+				height: 297mm;
 				margin: 0;
-				padding: 30px;
+				padding: 0.5in;
 				border: none;
 				max-width: 100%;
 				box-shadow: none;
-				box-sizing: border-box; /* FIX: keep padding inside 100% width on print */
+				box-sizing: border-box;
+				page-break-after: avoid;
 			}
 			html, body {
-				width: 100%;
-				height: 100%;
+				width: 210mm;
+				height: 297mm;
+				margin: 0;
+				padding: 0;
 			}
 			#printBtn {
 				display: none;
