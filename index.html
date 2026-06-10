@@ -59,10 +59,9 @@
 
 		/* Form styling */
 		.leave-form {
-			max-width: 1200px;
-			margin: 10px auto;
-			padding: 10px;
-			border: 1px solid #ddd;
+			max-width: 100%;
+			margin: 0;
+			padding: 0;
 			background-color: #fff;
 		}
 
@@ -196,7 +195,12 @@
 			background-color: #005bb3;
 		}
 
-		/* Print media query */
+		/* Print media query with A4 margins */
+		@page {
+			size: A4;
+			margin: 0.75in 0.5in 0.75in 0.5in;
+		}
+
 		@media print {
 			body * {
 				visibility: hidden;
@@ -211,6 +215,10 @@
 				left: 0;
 				top: 0;
 				width: 100%;
+				margin: 0;
+				padding: 0;
+				border: none;
+				max-width: 100%;
 			}
 
 			body {
@@ -220,6 +228,11 @@
 
 			#printBtn {
 				display: none;
+			}
+
+			html, body {
+				width: 100%;
+				height: 100%;
 			}
 		}
 	</style>
