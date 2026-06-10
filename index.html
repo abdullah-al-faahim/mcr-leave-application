@@ -10,7 +10,7 @@
 		body {
 			font-family: Arial, sans-serif;
 			margin: 0;
-			padding: 0;
+			padding: 20px;
 		}
 
 		label {
@@ -61,7 +61,7 @@
 		.leave-form {
 			max-width: 100%;
 			margin: 0;
-			padding: 0;
+			padding: 30px;
 			background-color: #fff;
 		}
 
@@ -78,7 +78,25 @@
 		}
 
 		.company-details p {
+			margin: 0;
+			padding: 0;
+			line-height: 1.4;
+		}
+
+		.company-details .company-name {
+			font-size: 18px;
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			font-weight: bold;
 			margin-bottom: 5px;
+		}
+
+		.company-details .company-address {
+			font-size: 13px;
+			margin-bottom: 5px;
+		}
+
+		.company-details .company-contact {
+			font-size: 13px;
 		}
 
 		.company-logo img {
@@ -150,11 +168,20 @@
 			justify-content: space-between;
 			padding-top: 50px;
 			margin-top: 30px;
+			margin-bottom: 50px;
 		}
 
 		.signature {
 			width: 48%;
 			text-align: center;
+		}
+
+		.signature.applicant {
+			text-align: left;
+		}
+
+		.signature.head {
+			text-align: right;
 		}
 
 		.signature p {
@@ -175,6 +202,18 @@
 
 		.application-date-time {
 			font-size: 12px;
+		}
+
+		/* Official Use Only Section */
+		.official-section {
+			margin-top: 30px;
+			padding-top: 30px;
+			border-top: 2px solid #000;
+		}
+
+		.official-section h4 {
+			margin-top: 0;
+			margin-bottom: 15px;
 		}
 
 		/* Print button */
@@ -202,6 +241,10 @@
 		}
 
 		@media print {
+			body {
+				padding: 0;
+			}
+
 			body * {
 				visibility: hidden;
 			}
@@ -216,7 +259,7 @@
 				top: 0;
 				width: 100%;
 				margin: 0;
-				padding: 0;
+				padding: 30px;
 				border: none;
 				max-width: 100%;
 			}
@@ -241,9 +284,9 @@
 	<div class="leave-form">
 		<div class="form-header">
 			<div class="company-details">
-				<p style="font-size: 24px; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bold; font-style: italic;">Channel i, Impress Telefilm Ltd.</p>
-				<p>40, Shahid Tajuddin Ahmed Sarani, Tejgon I/A, Dhaka-1208</p>
-				<p><label style="display: inline; font-weight: normal;">Tele:</label> +88028891160-65</p>
+				<p class="company-name">Channel i, Impress Telefilm Ltd.</p>
+				<p class="company-address">40, Shahid Tajuddin Ahmed Sarani, Tejgon I/A, Dhaka-1208</p>
+				<p class="company-contact">Phone: +88028891161-65 | E-Mail: info@channelionline.com</p>
 			</div>
 			<div class="company-logo">
 				<img src="https://dev.channelionline.com/wp-content/uploads/2022/03/chanenl-i-logo-crip-2.jpg" alt="Company Logo">
@@ -301,45 +344,47 @@
 		</div>
 
 		<div class="signature-row">
-			<div class="signature">
+			<div class="signature applicant">
 				<p>________________________<br><label>Signature of Applicant</label></p>
 			</div>
-			<div class="signature">
-				<p>_____________________________________<br><label>Signature of Departmental Head</label></p>
+			<div class="signature head">
+				<p>________________________<br><label>Signature of Departmental Head</label></p>
 			</div>
 		</div>
 
-		<h4 class="centered-title">Official Use Only</h4>
-		<label>Leave Record</label>
-		<table>
-			<tr>
-				<th>Particular</th>
-				<th>Casual Leave</th>
-				<th>Sick Leave</th>
-				<th>Earned Leave (Annual)</th>
-			</tr>
-			<tr>
-				<td>Entitled</td>
-				<td> - </td>
-				<td> - </td>
-				<td> - </td>
-			</tr>
-			<tr>
-				<td>Availed</td>
-				<td> - </td>
-				<td> - </td>
-				<td> - </td>
-			</tr>
-			<tr>
-				<td>Balance</td>
-				<td> - </td>
-				<td> - </td>
-				<td> - </td>
-			</tr>
-		</table>
+		<div class="official-section">
+			<h4 class="centered-title">Official Use Only</h4>
+			<label>Leave Record</label>
+			<table>
+				<tr>
+					<th>Particular</th>
+					<th>Casual Leave</th>
+					<th>Sick Leave</th>
+					<th>Earned Leave (Annual)</th>
+				</tr>
+				<tr>
+					<td>Entitled</td>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Availed</td>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Balance</td>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+			</table>
 
-		<div style="padding-top: 30px;">
-			<p>________________________<br><label>Signature of HR/Admin</label></p>
+			<div style="padding-top: 30px;">
+				<p>________________________<br><label>Signature of HR/Admin</label></p>
+			</div>
 		</div>
 	</div>
 
