@@ -272,9 +272,16 @@
 		}
 
 		@media print {
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
 			body {
 				background: white;
 				padding: 0;
+				margin: 0;
 			}
 
 			.page-container {
@@ -282,10 +289,30 @@
 				height: auto;
 				box-shadow: none;
 				padding: 0.5in;
+				margin: 0;
+				page-break-after: avoid;
 			}
 
 			#printBtn {
 				display: none;
+			}
+
+			/* Ensure all elements print correctly */
+			.form-content {
+				overflow: visible;
+			}
+
+			/* Print with same styling */
+			.header-section,
+			.title-section,
+			.form-section,
+			.signature-section,
+			.official-section {
+				page-break-inside: avoid;
+			}
+
+			table {
+				page-break-inside: avoid;
 			}
 		}
 	</style>
