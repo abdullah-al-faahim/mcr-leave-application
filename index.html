@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<style>
 		body {
-			font-family: Arial, sans-serif;
+			font-family: Segoe UI, sans-serif;
 			margin: 0;
 			padding: 0.3in;
 			background-color: #f5f5f5;
@@ -78,8 +78,9 @@
 			margin-bottom: 4px;
 		}
 		.company-details .company-address { font-size: 14px; margin-bottom: 2px; }
-		.company-details .company-contact { font-size: 14px; }
+		.company-details .company-contact { font-size: 14px; margin-bottom: 5px; }
 		.company-logo img { width: 150px; height: auto; }
+		
 
 		/* Employee details row — Name:ID:Designation = 3:1:2 */
 		.employee-details {
@@ -158,7 +159,7 @@
 		.signature-row {
 			display: flex;
 			justify-content: space-between;
-			padding-top: 60px;
+			padding-top: 70px;
 			margin-bottom: 20px;
 			flex-shrink: 0;
 		}
@@ -175,8 +176,8 @@
 		.signature label { display: inline; font-weight: normal; }
 
 		/* Titles */
-		.centered-title { text-align: center; margin-top: 10px; margin-bottom: 5px; }
-		.application-date-time { font-size: 11px; }
+		.centered-title { text-align: center; margin-top: 20px; margin-bottom: 5px; }
+		.application-date-time { font-size: 0px }
 
 		/* Official Use Only */
 		.official-section {
@@ -194,7 +195,7 @@
 
 		/* HR/Admin signature — no gap */
 		.hr-signature {
-			padding-top: 30px;
+			padding-top: 60px;
 		}
 		.hr-signature p {
 			margin: 0;
@@ -326,13 +327,13 @@
 				<p><span class="signature-line"></span><br><label>Signature</label><br>Applicant</p>
 			</div>
 			<div class="signature head">
-				<p><span class="signature-line"></span><br><label>Signature</label><br>Head of Department (Transmission)</p>
+				<p><span class="signature-line"></span><br><label>Signature</label><br>Head of the Department</p>
 			</div>
 		</div>
 
 		<!-- Official Use Only -->
 		<div class="official-section">
-			<h4 class="centered-title">Official Use Only</h4>
+			<h3 class="centered-title">Official Use Only</h3>
 			<label>Leave Record</label>
 			<table>
 				<tr>
