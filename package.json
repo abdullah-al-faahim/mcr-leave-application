@@ -7,7 +7,8 @@
   "scripts": {
     "prepare-icon": "node scripts/prepare-icon.js",
     "package-win": "npm run prepare-icon && electron-packager . \"Leave Application\" --platform=win32 --arch=x64 --icon=build/icon.ico --out=dist --overwrite --asar",
-    "build-win": "npm run package-win"
+    "build-win": "npm run package-win",
+    "build-installer": "npm run package-win && makensis -DROOT=\"$(pwd)\" scripts/installer.nsi"
   },
   "devDependencies": {
     "electron": "^30.0.0",
