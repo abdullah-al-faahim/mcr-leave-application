@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Leave Application - Channel i MCR</title>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div class="leave-form">
+		<div class="form-header">
+			<div class="company-details">
+				<p class="company-name">Channel i, Impress Telefilm Ltd.</p>
+				<p class="company-address"><strong>Address:</strong> 40, Shahid Tajuddin Ahmed Sarani, Tejgaon I/A, Dhaka-1208
+				</p>
+				<p class="company-contact"><strong>Phone:</strong> +88028891161-65 | <strong>E-Mail:</strong>
+					info@channelionline.com</p>
+				<p class="company-website"><strong>Website:</strong> www.channelionline.com</p>
+			</div>
+			<div class="company-logo">
+				<img src="assets/Channel-i.svg" alt="Company Logo">
+			</div>
+		</div>
+
+		<h2 class="centered-title">Leave Application</h2>
+		<p class="application-date-time centered-title"></p>
+
+		<!-- Row 1: Name / ID / Designation -->
+		<div class="employee-details">
+			<div class="field-name">
+				<label>Employee Name:</label>
+				<input type="text">
+			</div>
+			<div class="field-id">
+				<label>ID No:</label>
+				<input type="text">
+			</div>
+			<div class="field-desig">
+				<label>Designation:</label>
+				<input type="text">
+			</div>
+		</div>
+
+		<!-- Row 2: Department / Leave Period (From + To inline) / Total Days -->
+		<div class="leave-details">
+			<div class="field-dept">
+				<label>Department:</label>
+				<input type="text">
+			</div>
+			<div class="field-period">
+				<div class="period-row">
+					<div class="period-from">
+						<label>Leave Period From:</label>
+						<input type="text" id="fromDate" placeholder="DD/MM/YYYY">
+					</div>
+					<div class="period-to">
+						<label>To:</label>
+						<input type="text" id="toDate" placeholder="DD/MM/YYYY">
+					</div>
+				</div>
+			</div>
+			<div class="field-days">
+				<label>Days:</label>
+				<input type="number" id="totalDays" min="1" max="999">
+			</div>
+		</div>
+
+		<!-- Purpose + Leave Type -->
+		<div class="field-container">
+			<div class="leave-purpose">
+				<label>Purpose of Leave:</label>
+				<input type="text">
+			</div>
+			<div class="leave-type">
+				<label>Type of Leave:</label>
+				<div class="options">
+					<label><input type="radio" name="leaveType" value="Casual"> Casual</label>
+					<label><input type="radio" name="leaveType" value="Sick"> Sick</label>
+					<label><input type="radio" name="leaveType" value="Earned"> Earned</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- Signatures: Applicant + HoD -->
+		<div class="signature-row">
+			<div class="signature applicant">
+				<p><span class="signature-line"></span><br><label>Signature</label><br><strong>Applicant</strong></p>
+			</div>
+			<div class="signature head">
+				<p><span class="signature-line"></span><br><label>Signature</label><br><strong>Head of the Department</strong>
+				</p>
+			</div>
+		</div>
+
+		<!-- Official Use Only -->
+		<div class="official-section">
+			<h3 class="centered-title">Official Use Only</h3>
+			<label>Leave Record</label>
+			<table>
+				<tr>
+					<th>Particular</th>
+					<th>Casual Leave</th>
+					<th>Sick Leave</th>
+					<th>Earned Leave (Annual)</th>
+				</tr>
+				<tr>
+					<td>Entitled</td>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Availed</td>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+				<tr>
+					<td>Balance</td>
+					<td> - </td>
+					<td> - </td>
+					<td> - </td>
+				</tr>
+			</table>
+			<div class="hr-signature">
+				<span class="signature-line"></span>
+				<p>Signature</p>
+				<p><strong>HR/Admin</strong></p>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
