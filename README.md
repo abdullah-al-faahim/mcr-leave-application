@@ -1,4 +1,3 @@
-# Channel i MCR Leave Application
+# MCR Leave Application - Channel i
 
-![image](leaveapplication_DEMO.jpg)
-
+![image](leaveapplication_DEMO.png)
